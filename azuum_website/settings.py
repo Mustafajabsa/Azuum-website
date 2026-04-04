@@ -26,9 +26,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-8)5=+r)!-w6(!4tg2r7m&#+a6%90!tsj!cuq$ug#j6*c9@pqp&'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['azuum-website.onrender.com']
 
 
 # Application definition
