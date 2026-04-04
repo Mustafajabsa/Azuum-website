@@ -1,0 +1,37 @@
+# Environment variables (contains sensitive credentials)
+.env
+.env.local
+.env.production
+
+# Email configuration file (if exists)
+email_config.py
+
+# Django settings with secrets
+settings_local.py
+
+# Logs
+*.log
+
+# Database
+*.db
+*.sqlite3
+
+# Cache
+__pycache__/
+*.pyc
+
+# Static files
+staticfiles/
+
+# Media files
+media/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db

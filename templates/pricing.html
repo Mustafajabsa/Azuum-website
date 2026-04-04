@@ -1,0 +1,1202 @@
+{% load static %}
+<!doctype html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pricing - Azuum</title>
+    <meta
+      name="description"
+      content="Transparent pricing plans for Azuum. Choose the perfect plan for your organization's needs."
+    />
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            fontFamily: {
+              sans: ["Inter", "sans-serif"],
+            },
+            colors: {
+              primary: {
+                50: "#eff6ff",
+                100: "#dbeafe",
+                200: "#bfdbfe",
+                300: "#93c5fd",
+                400: "#60a5fa",
+                500: "#3b82f6",
+                600: "#2563eb",
+                700: "#1d4ed8",
+                800: "#1e40af",
+                900: "#1e3a8a",
+                950: "#172554",
+              },
+              secondary: {
+                50: "#f5f3ff",
+                100: "#ede9fe",
+                200: "#ddd6fe",
+                300: "#c4b5fd",
+                400: "#a78bfa",
+                500: "#8b5cf6",
+                600: "#7c3aed",
+                700: "#6d28d9",
+                800: "#5b21b6",
+                900: "#4c1d95",
+              },
+            },
+          },
+        },
+      };
+    </script>
+
+    <style>
+      .glass-effect {
+        background: rgba(255, 255, 255, 0.7);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+      }
+
+      .gradient-text {
+        background: linear-gradient(
+          135deg,
+          #3b82f6 0%,
+          #7c3aed 50%,
+          #2563eb 100%
+        );
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        background-clip: text;
+      }
+
+      .pricing-card {
+        transition: all 0.3s ease;
+      }
+
+      .pricing-card:hover {
+        transform: translateY(-8px);
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+      }
+
+      .popular-badge {
+        background: linear-gradient(135deg, #3b82f6 0%, #7c3aed 100%);
+      }
+      /* Header fixes */
+      .navbar-brand {
+        flex-shrink: 0;
+        min-width: 0;
+      }
+
+      .navbar-brand span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .nav-links {
+        flex-shrink: 0;
+        overflow-x: auto;
+      }
+
+      @media (max-width: 768px) {
+        .navbar-brand span {
+          max-width: 120px;
+        }
+      }
+    </style>
+  </head>
+  <body class="font-sans antialiased text-gray-800 bg-white">
+    <!-- Navigation -->
+    <nav
+      class="fixed w-full z-50 glass-effect border-b border-gray-200/50 transition-all duration-300"
+      id="navbar"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="flex justify-between items-center h-16">
+          <div class="flex items-center space-x-1 navbar-brand">
+            <div class="w-8 h-8 flex items-center justify-center">
+              <img
+                src="{% static 'images/logo.png' %}"
+                alt="Azuum Logo"
+                class="w-full h-full object-contain"
+              />
+            </div>
+            <span
+              class="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent"
+            >
+              Azuum
+            </span>
+          </div>
+
+          <div class="hidden md:flex items-center space-x-4 nav-links">
+            <a
+              href="{% url 'home' %}"
+              class="text-gray-600 hover:text-blue-600 font-medium transition-colors"
+              >Home</a
+            >
+            <a
+              href="{% url 'features' %}"
+              class="text-gray-600 hover:text-blue-600 font-medium transition-colors"
+              >Features</a
+            >
+            <a
+              href="{% url 'modules' %}"
+              class="text-gray-600 hover:text-blue-600 font-medium transition-colors"
+              >Modules</a
+            >
+            <a
+              href="{% url 'about' %}"
+              class="text-gray-600 hover:text-blue-600 font-medium transition-colors"
+              >About</a
+            >
+            <a
+              href="{% url 'pricing' %}"
+              class="text-blue-600 font-medium transition-colors"
+            >
+              Pricing
+            </a>
+            <a
+              href="{% url 'contact' %}"
+              class="text-gray-600 hover:text-blue-600 font-medium transition-colors"
+            >
+              Contact
+            </a>
+          </div>
+
+          <div class="flex items-center space-x-2 flex-shrink-0">
+            <button
+              class="hidden md:block text-gray-600 hover:text-blue-600 font-medium transition-colors whitespace-nowrap"
+            >
+              Sign In
+            </button>
+            <button
+              class="bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-2 rounded-full font-medium hover:shadow-lg hover:shadow-blue-500/30 transition-all transform hover:scale-105 whitespace-nowrap"
+            >
+              Get Started
+            </button>
+            <button
+              class="md:hidden p-2 text-gray-600"
+              onclick="toggleMobileMenu()"
+            >
+              <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Mobile Menu -->
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden bg-white border-t border-gray-100"
+      >
+        <div class="px-4 pt-2 pb-4 space-y-1">
+          <a
+            href="{% url 'home' %}"
+            class="block px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-md"
+            >Home</a
+          >
+          <a
+            href="{% url 'features' %}"
+            class="block px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-md"
+            >Features</a
+          >
+          <a
+            href="{% url 'modules' %}"
+            class="block px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-md"
+            >Modules</a
+          >
+          <a
+            href="{% url 'about' %}"
+            class="block px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-md"
+            >About</a
+          >
+          <a
+            href="{% url 'pricing' %}"
+            class="block px-3 py-2 text-blue-600 hover:bg-gray-50 rounded-md"
+            >Pricing</a
+          >
+          <a
+            href="{% url 'contact' %}"
+            class="block px-3 py-2 text-gray-600 hover:bg-gray-50 rounded-md"
+            >Contact</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section
+      class="relative bg-gradient-to-br from-blue-50 to-purple-50 pt-24 pb-16 overflow-hidden"
+    >
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center">
+          <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
+            Simple, Transparent <span class="gradient-text">Pricing</span>
+          </h1>
+          <p class="text-xl text-gray-600 max-w-3xl mx-auto mb-8">
+            Choose the perfect plan for your organization. No hidden fees, no
+            surprises. Start with a free 14-day trial.
+          </p>
+
+          <!-- Billing Toggle -->
+          <div
+            class="inline-flex items-center bg-white rounded-full p-1 shadow-sm border border-gray-200"
+          >
+            <button
+              id="monthly-toggle"
+              class="px-6 py-2 rounded-full text-sm font-medium bg-blue-600 text-white transition-all"
+            >
+              Monthly
+            </button>
+            <button
+              id="annual-toggle"
+              class="px-6 py-2 rounded-full text-sm font-medium text-gray-600 hover:text-gray-900 transition-all"
+            >
+              Annual (Save 20%)
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pricing Cards -->
+    <section class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid lg:grid-cols-4 gap-8">
+          <!-- Starter Plan -->
+          <div
+            class="pricing-card bg-white rounded-2xl border border-gray-200 p-8 relative"
+          >
+            <div class="text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Starter</h3>
+              <p class="text-gray-600 mb-6">
+                Perfect for small teams and startups
+              </p>
+
+              <div class="starter-plan">
+                <div class="mb-6">
+                  <span class="price text-4xl font-bold text-gray-900"
+                    >$29</span
+                  >
+                  <span class="period text-gray-600">/month</span>
+                  <div
+                    class="savings text-sm text-green-600 font-medium mt-1"
+                    style="display: none"
+                  >
+                    Save $70 annually
+                  </div>
+                </div>
+              </div>
+
+              <ul class="space-y-3 mb-8 text-left">
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Up to 10 users</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">100 forms per month</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">1,000 submissions</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Basic analytics</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Email support</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="x"
+                    class="w-5 h-5 text-gray-400 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-400">API access</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="x"
+                    class="w-5 h-5 text-gray-400 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-400">Custom branding</span>
+                </li>
+              </ul>
+
+              <button
+                class="w-full bg-gray-100 text-gray-700 px-6 py-3 rounded-lg font-semibold hover:bg-gray-200 transition-all"
+              >
+                Start Free Trial
+              </button>
+            </div>
+          </div>
+
+          <!-- Professional Plan -->
+          <div
+            class="pricing-card bg-white rounded-2xl border border-gray-200 p-8 relative"
+          >
+            <div class="text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Professional</h3>
+              <p class="text-gray-600 mb-6">Great for growing businesses</p>
+
+              <div class="professional-plan">
+                <div class="mb-6">
+                  <span class="price text-4xl font-bold text-gray-900"
+                    >$79</span
+                  >
+                  <span class="period text-gray-600">/month</span>
+                  <div
+                    class="savings text-sm text-green-600 font-medium mt-1"
+                    style="display: none"
+                  >
+                    Save $190 annually
+                  </div>
+                </div>
+              </div>
+
+              <ul class="space-y-3 mb-8 text-left">
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Up to 50 users</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Unlimited forms</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">10,000 submissions</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Advanced analytics</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Priority support</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">API access</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="x"
+                    class="w-5 h-5 text-gray-400 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-400">Custom branding</span>
+                </li>
+              </ul>
+
+              <button
+                class="w-full bg-blue-600 text-white px-6 py-3 rounded-lg font-semibold hover:bg-blue-700 transition-all"
+              >
+                Start Free Trial
+              </button>
+            </div>
+          </div>
+
+          <!-- Business Plan (Most Popular) -->
+          <div
+            class="pricing-card bg-white rounded-2xl border-2 border-blue-500 p-8 relative transform scale-105"
+          >
+            <div class="absolute -top-4 left-1/2 transform -translate-x-1/2">
+              <span
+                class="popular-badge text-white px-4 py-1 rounded-full text-sm font-semibold"
+              >
+                Most Popular
+              </span>
+            </div>
+
+            <div class="text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Business</h3>
+              <p class="text-gray-600 mb-6">
+                Ideal for established organizations
+              </p>
+
+              <div class="business-plan">
+                <div class="mb-6">
+                  <span class="price text-4xl font-bold text-gray-900"
+                    >$199</span
+                  >
+                  <span class="period text-gray-600">/month</span>
+                  <div
+                    class="savings text-sm text-green-600 font-medium mt-1"
+                    style="display: none"
+                  >
+                    Save $478 annually
+                  </div>
+                </div>
+              </div>
+
+              <ul class="space-y-3 mb-8 text-left">
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Unlimited users</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Unlimited forms</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Unlimited submissions</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Advanced analytics</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">24/7 phone support</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Advanced API</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Custom branding</span>
+                </li>
+              </ul>
+
+              <button
+                class="w-full bg-gradient-to-r from-blue-600 to-purple-600 text-white px-6 py-3 rounded-lg font-semibold hover:shadow-lg transition-all"
+              >
+                Start Free Trial
+              </button>
+            </div>
+          </div>
+
+          <!-- Enterprise Plan -->
+          <div
+            class="pricing-card bg-white rounded-2xl border border-gray-200 p-8 relative"
+          >
+            <div class="text-center">
+              <h3 class="text-xl font-bold text-gray-900 mb-2">Enterprise</h3>
+              <p class="text-gray-600 mb-6">
+                Custom solutions for large organizations
+              </p>
+
+              <div class="mb-6">
+                <span class="text-4xl font-bold text-gray-900">Custom</span>
+              </div>
+
+              <ul class="space-y-3 mb-8 text-left">
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Everything in Business</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Dedicated account manager</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Custom integrations</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">SLA guarantee</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">On-premise option</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Advanced security</span>
+                </li>
+                <li class="flex items-center gap-2">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 flex-shrink-0"
+                  ></i>
+                  <span class="text-gray-700">Custom training</span>
+                </li>
+              </ul>
+
+              <button
+                class="w-full bg-gray-900 text-white px-6 py-3 rounded-lg font-semibold hover:bg-gray-800 transition-all"
+              >
+                Contact Sales
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Features Comparison -->
+    <section class="py-16 bg-gray-50">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Feature Comparison
+          </h2>
+          <p class="text-lg text-gray-600 max-w-3xl mx-auto">
+            See exactly what you get with each plan
+          </p>
+        </div>
+
+        <div class="overflow-x-auto">
+          <table class="w-full bg-white rounded-lg overflow-hidden">
+            <thead class="bg-gray-50">
+              <tr>
+                <th
+                  class="px-6 py-4 text-left text-sm font-semibold text-gray-900"
+                >
+                  Feature
+                </th>
+                <th
+                  class="px-6 py-4 text-center text-sm font-semibold text-gray-900"
+                >
+                  Starter
+                </th>
+                <th
+                  class="px-6 py-4 text-center text-sm font-semibold text-gray-900"
+                >
+                  Professional
+                </th>
+                <th
+                  class="px-6 py-4 text-center text-sm font-semibold text-blue-600"
+                >
+                  Business
+                </th>
+                <th
+                  class="px-6 py-4 text-center text-sm font-semibold text-gray-900"
+                >
+                  Enterprise
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-gray-200">
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700">Users</td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Up to 10
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Up to 50
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Unlimited
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Unlimited
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700">Forms</td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  100/month
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Unlimited
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Unlimited
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Unlimited
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700">Submissions</td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  1,000/month
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  10,000/month
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Unlimited
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Unlimited
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700">File Storage</td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  1 GB
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  10 GB
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  100 GB
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Unlimited
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700">API Access</td>
+                <td class="px-6 py-4 text-sm text-center">
+                  <i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i>
+                </td>
+                <td class="px-6 py-4 text-sm text-center">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 mx-auto"
+                  ></i>
+                </td>
+                <td class="px-6 py-4 text-sm text-center">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 mx-auto"
+                  ></i>
+                </td>
+                <td class="px-6 py-4 text-sm text-center">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 mx-auto"
+                  ></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700">Custom Branding</td>
+                <td class="px-6 py-4 text-sm text-center">
+                  <i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i>
+                </td>
+                <td class="px-6 py-4 text-sm text-center">
+                  <i data-lucide="x" class="w-5 h-5 text-gray-400 mx-auto"></i>
+                </td>
+                <td class="px-6 py-4 text-sm text-center">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 mx-auto"
+                  ></i>
+                </td>
+                <td class="px-6 py-4 text-sm text-center">
+                  <i
+                    data-lucide="check"
+                    class="w-5 h-5 text-green-500 mx-auto"
+                  ></i>
+                </td>
+              </tr>
+              <tr>
+                <td class="px-6 py-4 text-sm text-gray-700">Support</td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Email
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Priority
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  24/7 Phone
+                </td>
+                <td class="px-6 py-4 text-sm text-center text-gray-600">
+                  Dedicated
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="py-16 bg-white">
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-3xl font-bold text-gray-900 mb-4">
+            Frequently Asked Questions
+          </h2>
+          <p class="text-lg text-gray-600">
+            Everything you need to know about our pricing
+          </p>
+        </div>
+
+        <div class="space-y-6">
+          <div class="bg-gray-50 rounded-lg p-6">
+            <button
+              class="w-full text-left flex items-center justify-between"
+              onclick="toggleFAQ(this)"
+            >
+              <h3 class="font-semibold text-gray-900">
+                Can I change plans anytime?
+              </h3>
+              <i
+                data-lucide="chevron-down"
+                class="w-5 h-5 text-gray-500 transition-transform"
+              ></i>
+            </button>
+            <div class="hidden mt-4 text-gray-600">
+              Yes! You can upgrade or downgrade your plan at any time. Changes
+              take effect immediately, and we'll prorate any differences.
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-lg p-6">
+            <button
+              class="w-full text-left flex items-center justify-between"
+              onclick="toggleFAQ(this)"
+            >
+              <h3 class="font-semibold text-gray-900">
+                What happens after my trial ends?
+              </h3>
+              <i
+                data-lucide="chevron-down"
+                class="w-5 h-5 text-gray-500 transition-transform"
+              ></i>
+            </button>
+            <div class="hidden mt-4 text-gray-600">
+              After your 14-day trial, you can choose to subscribe to a paid
+              plan or continue with our free tier (limited features). No credit
+              card required to start.
+            </div>
+          </div>
+
+          <div class="bg-gray-50 rounded-lg p-6">
+            <button
+              class="w-full text-left flex items-center justify-between"
+              onclick="toggleFAQ(this)"
+            >
+              <h3 class="font-semibold text-gray-900">
+                Do you offer discounts for nonprofits?
+              </h3>
+              <i
+                data-lucide="chevron-down"
+                class="w-5 h-5 text-gray-500 transition-transform"
+              ></i>
+            </button>
+            <div class="hidden mt-4 text-gray-600">
+              Yes! We offer a 50% discount for qualified nonprofit
+              organizations. Contact our sales team to learn more about our
+              nonprofit program.
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section
+      class="py-16 bg-gradient-to-r from-blue-600 to-purple-600 text-white"
+    >
+      <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl font-bold mb-4">Ready to get started?</h2>
+        <p class="text-xl mb-8 opacity-90">
+          Join thousands of organizations already using Azuum Form Hub
+        </p>
+        <button
+          class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold hover:shadow-xl transition-all transform hover:scale-105"
+        >
+          Start Your Free Trial
+        </button>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16 border-t border-gray-800">
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-12">
+          <div class="lg:col-span-2">
+            <div class="flex items-center space-x-2 mb-4">
+              <div class="w-8 h-8 flex items-center justify-center">
+                <img
+                  src="{% static 'images/logo.png' %}"
+                  alt="Azuum Logo"
+                  class="w-full h-full object-contain"
+                />
+              </div>
+              <span class="text-xl font-bold text-white">Azuum</span>
+            </div>
+            <p class="text-gray-400 mb-6 max-w-sm">
+              Enterprise-grade form management system with role-based access,
+              file storage, and comprehensive analytics.
+            </p>
+            <div class="flex gap-4 mb-6">
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+              >
+                <img
+                  src="{% static 'images/instagram.jpg' %}"
+                  alt="Instagram"
+                  class="w-5 h-5 object-contain"
+                />
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+              >
+                <img
+                  src="{% static 'images/linkedin.png' %}"
+                  alt="LinkedIn"
+                  class="w-5 h-5 object-contain"
+                />
+              </a>
+              <a
+                href="#"
+                class="w-10 h-10 bg-gray-800 rounded-lg flex items-center justify-center hover:bg-gray-700 transition-colors"
+              >
+                <img
+                  src="{% static 'images/facebook.jpg' %}"
+                  alt="Facebook"
+                  class="w-5 h-5 object-contain"
+                />
+              </a>
+            </div>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Product</h4>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a
+                  href="{% url 'features' %}"
+                  class="hover:text-white transition-colors"
+                  >Features</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Integrations</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{% url 'pricing' %}"
+                  class="hover:text-white transition-colors"
+                  >Pricing</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Changelog</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Documentation</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Company</h4>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a
+                  href="{% url 'about' %}"
+                  class="hover:text-white transition-colors"
+                  >About</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors">Blog</a>
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Careers</a
+                >
+              </li>
+              <li>
+                <a
+                  href="{% url 'contact' %}"
+                  class="hover:text-white transition-colors"
+                  >Contact</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Developers</h4>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >API Documentation</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >REST API</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Webhooks</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >SDK & Libraries</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Code Examples</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >API Status</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Developer Forum</a
+                >
+              </li>
+            </ul>
+          </div>
+
+          <div>
+            <h4 class="text-white font-semibold mb-4">Legal</h4>
+            <ul class="space-y-3 text-sm">
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Privacy Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Terms of Service</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors"
+                  >Cookie Policy</a
+                >
+              </li>
+              <li>
+                <a href="#" class="hover:text-white transition-colors">GDPR</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div
+          class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4"
+        >
+          <div class="text-sm text-gray-500">
+            © 2024 Azuum. All rights reserved.
+          </div>
+          <div class="flex items-center gap-2 text-sm text-gray-500">
+            <span>Made with</span>
+            <i
+              data-lucide="heart"
+              class="w-4 h-4 text-red-500 fill-current"
+            ></i>
+            <span>for modern organizations</span>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <!-- Initialize Lucide Icons -->
+    <script>
+      // Initialize Lucide icons
+      lucide.createIcons();
+
+      // Mobile menu toggle
+      function toggleMobileMenu() {
+        const menu = document.getElementById("mobile-menu");
+        menu.classList.toggle("hidden");
+      }
+
+      // Pricing toggle functionality
+      let monthlyToggle = document.getElementById("monthly-toggle");
+      let annualToggle = document.getElementById("annual-toggle");
+
+      // Pricing data
+      let pricingData = {
+        starter: { monthly: 29, annual: 278, savings: 70 },
+        professional: { monthly: 79, annual: 758, savings: 190 },
+        business: { monthly: 199, annual: 1910, savings: 478 },
+      };
+
+      function updatePricing(isAnnual) {
+        console.log("updatePricing called with isAnnual:", isAnnual);
+
+        // Update toggle buttons like radio buttons
+        if (isAnnual) {
+          console.log("Setting annual active");
+          // Remove active state from monthly
+          monthlyToggle.classList.remove("bg-blue-600", "text-white");
+          monthlyToggle.classList.add("text-gray-600", "hover:text-gray-900");
+          // Add active state to annual
+          annualToggle.classList.add("bg-blue-600", "text-white");
+          annualToggle.classList.remove("text-gray-600", "hover:text-gray-900");
+        } else {
+          console.log("Setting monthly active");
+          // Remove active state from annual
+          annualToggle.classList.remove("bg-blue-600", "text-white");
+          annualToggle.classList.add("text-gray-600", "hover:text-gray-900");
+          // Add active state to monthly
+          monthlyToggle.classList.add("bg-blue-600", "text-white");
+          monthlyToggle.classList.remove(
+            "text-gray-600",
+            "hover:text-gray-900",
+          );
+        }
+
+        // Update pricing cards
+        updatePricingCard("starter", isAnnual);
+        updatePricingCard("professional", isAnnual);
+        updatePricingCard("business", isAnnual);
+      }
+
+      function updatePricingCard(plan, isAnnual) {
+        const data = pricingData[plan];
+        const priceElement = document.querySelector(`.${plan}-plan .price`);
+        const periodElement = document.querySelector(`.${plan}-plan .period`);
+        const savingsElement = document.querySelector(`.${plan}-plan .savings`);
+
+        console.log(`Updating ${plan} plan:`, data);
+
+        if (isAnnual) {
+          // Show annual pricing
+          priceElement.textContent = `$${data.annual}`;
+          periodElement.textContent = "/year";
+          if (savingsElement) {
+            savingsElement.style.display = "block";
+            savingsElement.textContent = `Save $${data.savings} annually`;
+          }
+        } else {
+          // Show monthly pricing
+          priceElement.textContent = `$${data.monthly}`;
+          periodElement.textContent = "/month";
+          if (savingsElement) {
+            savingsElement.style.display = "none";
+          }
+        }
+      }
+
+      // Add event listeners
+      monthlyToggle.addEventListener("click", () => {
+        console.log("Monthly clicked");
+        updatePricing(false);
+      });
+      annualToggle.addEventListener("click", () => {
+        console.log("Annual clicked");
+        updatePricing(true);
+      });
+
+      // Initialize with monthly pricing active (as requested)
+      console.log("Initializing pricing with monthly active...");
+      updatePricing(false);
+
+      // FAQ toggle
+      function toggleFAQ(button) {
+        const content = button.nextElementSibling;
+        const icon = button.querySelector("i");
+
+        content.classList.toggle("hidden");
+        icon.classList.toggle("rotate-180");
+      }
+
+      // Navbar scroll effect
+      let lastScroll = 0;
+      const navbar = document.getElementById("navbar");
+
+      window.addEventListener("scroll", () => {
+        const currentScroll = window.pageYOffset;
+
+        if (currentScroll > 100) {
+          navbar.classList.add("shadow-md");
+          navbar.classList.remove("border-gray-200/50");
+          navbar.classList.add("border-gray-200");
+        } else {
+          navbar.classList.remove("shadow-md");
+          navbar.classList.remove("border-gray-200");
+          navbar.classList.add("border-gray-200/50");
+        }
+
+        lastScroll = currentScroll;
+      });
+    </script>
+  </body>
+</html>
