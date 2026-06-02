@@ -200,3 +200,42 @@ html.dark .tech-card {
   background: rgba(30, 41, 59, 0.7) !important;
   border-color: rgba(148, 163, 184, 0.22) !important;
 }
+
+/* Subpage hero dark mode */
+html.dark .subpage-hero {
+  background: #020617 !important;
+  background-image:
+    radial-gradient(circle at 18% 18%, rgba(37, 99, 235, 0.22), transparent 30%),
+    radial-gradient(circle at 82% 12%, rgba(124, 58, 237, 0.2), transparent 28%) !important;
+}
+
+html.dark .subpage-hero h1,
+html.dark .subpage-hero h2 {
+  color: #ffffff !important;
+}
+
+html.dark .subpage-hero p {
+  color: #cbd5e1 !important;
+}
+
+html.dark .subpage-hero .bg-white {
+  background-color: rgba(15, 23, 42, 0.92) !important;
+}
+
+html.dark .popular-badge {
+  box-shadow: 0 18px 40px -18px rgba(59, 130, 246, 0.9) !important;
+  --tw-ring-color: #0f172a !important;
+}
+
+html.dark #module-image-modal > div {
+  background: #0f172a !important;
+}
+
+html.dark #module-image-modal h2 {
+  color: #f8fafc !important;
+}
+
+html.dark #module-image-modal .bg-slate-100,
+html.dark #module-image-modal .bg-gray-100 {
+  background-color: #1e293b !important;
+}

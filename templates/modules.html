@@ -211,7 +211,7 @@
     </nav>
 
     <!-- Hero Section -->
-    <section class="pt-24 pb-16 bg-gradient-to-br from-blue-50 to-purple-50">
+    <section class="subpage-hero pt-24 pb-16 bg-gradient-to-br from-blue-50 to-purple-50">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div class="text-center max-w-3xl mx-auto">
           <span
@@ -233,22 +233,30 @@
     <!-- Modules Section -->
     <section class="py-24 bg-white">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           <!-- Dashboard Module -->
           <div class="group">
-            <div
-              class="bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+            <button
+              type="button"
+              class="module-image-trigger block w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 rounded-2xl"
+              data-module-image="{% static 'images/dashboard.png' %}"
+              data-module-title="Dashboard Module"
+              aria-label="View Dashboard Module Screenshot larger"
             >
               <div
-                class="aspect-video bg-white flex items-center justify-center p-4"
+                class="module-image-card bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
               >
-                <img
-                  src="{% static 'images/dashboard.png' %}"
-                  alt="Dashboard Module Screenshot"
-                  class="w-full h-full object-contain rounded-lg"
-                />
+                <div
+                  class="aspect-[4/3] bg-white flex items-center justify-center p-3"
+                >
+                  <img
+                    src="{% static 'images/dashboard.png' %}"
+                    alt="Dashboard Module Screenshot"
+                    class="w-full h-full object-contain rounded-lg"
+                  />
+                </div>
               </div>
-            </div>
+            </button>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Dashboard</h3>
             <p class="text-gray-600 mb-4">
               Get a comprehensive overview of your form activities with
@@ -274,19 +282,27 @@
 
           <!-- Storage Module -->
           <div class="group">
-            <div
-              class="bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+            <button
+              type="button"
+              class="module-image-trigger block w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 rounded-2xl"
+              data-module-image="{% static 'images/storage.png' %}"
+              data-module-title="Storage Module"
+              aria-label="View Storage Module Screenshot larger"
             >
               <div
-                class="aspect-video bg-white flex items-center justify-center p-4"
+                class="module-image-card bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
               >
-                <img
-                  src="{% static 'images/storage.png' %}"
-                  alt="Storage Module Screenshot"
-                  class="w-full h-full object-contain rounded-lg"
-                />
+                <div
+                  class="aspect-[4/3] bg-white flex items-center justify-center p-3"
+                >
+                  <img
+                    src="{% static 'images/storage.png' %}"
+                    alt="Storage Module Screenshot"
+                    class="w-full h-full object-contain rounded-lg"
+                  />
+                </div>
               </div>
-            </div>
+            </button>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Storage</h3>
             <p class="text-gray-600 mb-4">
               Manage your files and documents with secure cloud storage.
@@ -312,19 +328,27 @@
 
           <!-- Forms Module -->
           <div class="group">
-            <div
-              class="bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+            <button
+              type="button"
+              class="module-image-trigger block w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 rounded-2xl"
+              data-module-image="{% static 'images/forms.png' %}"
+              data-module-title="Forms Module"
+              aria-label="View Forms Module Screenshot larger"
             >
               <div
-                class="aspect-video bg-white flex items-center justify-center p-4"
+                class="module-image-card bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
               >
-                <img
-                  src="{% static 'images/forms.png' %}"
-                  alt="Forms Module Screenshot"
-                  class="w-full h-full object-contain rounded-lg"
-                />
+                <div
+                  class="aspect-[4/3] bg-white flex items-center justify-center p-3"
+                >
+                  <img
+                    src="{% static 'images/forms.png' %}"
+                    alt="Forms Module Screenshot"
+                    class="w-full h-full object-contain rounded-lg"
+                  />
+                </div>
               </div>
-            </div>
+            </button>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Forms</h3>
             <p class="text-gray-600 mb-4">
               Create and customize professional forms with our intuitive
@@ -350,19 +374,27 @@
 
           <!-- Filled Forms Module -->
           <div class="group">
-            <div
-              class="bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+            <button
+              type="button"
+              class="module-image-trigger block w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 rounded-2xl"
+              data-module-image="{% static 'images/filled forms.png' %}"
+              data-module-title="Filled Forms Module"
+              aria-label="View Filled Forms Module Screenshot larger"
             >
               <div
-                class="aspect-video bg-white flex items-center justify-center p-4"
+                class="module-image-card bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
               >
-                <img
-                  src="{% static 'images/filled forms.png' %}"
-                  alt="Filled Forms Module Screenshot"
-                  class="w-full h-full object-contain rounded-lg"
-                />
+                <div
+                  class="aspect-[4/3] bg-white flex items-center justify-center p-3"
+                >
+                  <img
+                    src="{% static 'images/filled forms.png' %}"
+                    alt="Filled Forms Module Screenshot"
+                    class="w-full h-full object-contain rounded-lg"
+                  />
+                </div>
               </div>
-            </div>
+            </button>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Filled Forms</h3>
             <p class="text-gray-600 mb-4">
               View, manage, and analyze all submitted forms in one place. Export
@@ -387,19 +419,27 @@
 
           <!-- Settings Module -->
           <div class="group">
-            <div
-              class="bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
+            <button
+              type="button"
+              class="module-image-trigger block w-full text-left focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300 rounded-2xl"
+              data-module-image="{% static 'images/settings.png' %}"
+              data-module-title="Settings Module"
+              aria-label="View Settings Module Screenshot larger"
             >
               <div
-                class="aspect-video bg-white flex items-center justify-center p-4"
+                class="module-image-card bg-gray-100 rounded-2xl overflow-hidden mb-6 transform transition-all duration-300 group-hover:scale-105 group-hover:shadow-xl"
               >
-                <img
-                  src="{% static 'images/settings.png' %}"
-                  alt="Settings Module Screenshot"
-                  class="w-full h-full object-contain rounded-lg"
-                />
+                <div
+                  class="aspect-[4/3] bg-white flex items-center justify-center p-3"
+                >
+                  <img
+                    src="{% static 'images/settings.png' %}"
+                    alt="Settings Module Screenshot"
+                    class="w-full h-full object-contain rounded-lg"
+                  />
+                </div>
               </div>
-            </div>
+            </button>
             <h3 class="text-2xl font-bold text-gray-900 mb-3">Settings</h3>
             <p class="text-gray-600 mb-4">
               Configure your system preferences, manage user accounts, and
@@ -426,10 +466,44 @@
       </div>
     </section>
 
+
+    <!-- Module Image Preview Modal -->
+    <div
+      id="module-image-modal"
+      class="fixed inset-0 z-[70] hidden items-center justify-center bg-slate-950/85 p-4 backdrop-blur-sm"
+      role="dialog"
+      aria-modal="true"
+      aria-labelledby="module-image-modal-title"
+    >
+      <div class="relative w-full max-w-6xl rounded-3xl bg-white p-4 shadow-2xl">
+        <div class="mb-3 flex items-center justify-between gap-4">
+          <h2 id="module-image-modal-title" class="text-lg font-semibold text-gray-900">
+            Module preview
+          </h2>
+          <button
+            type="button"
+            id="module-image-modal-close"
+            class="rounded-full bg-gray-100 p-2 text-gray-700 transition-colors hover:bg-gray-200 focus:outline-none focus-visible:ring-4 focus-visible:ring-blue-300"
+            aria-label="Close module image preview"
+          >
+            <i data-lucide="x" class="h-5 w-5"></i>
+          </button>
+        </div>
+        <div class="max-h-[78vh] overflow-auto rounded-2xl bg-slate-100 p-3">
+          <img
+            id="module-image-modal-img"
+            src=""
+            alt=""
+            class="mx-auto h-auto w-full max-w-none rounded-xl object-contain"
+          />
+        </div>
+      </div>
+    </div>
+
     <!-- Footer -->
     <footer class="bg-gray-900 text-gray-300 py-16 border-t border-gray-800">
       <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div class="grid md:grid-cols-2 lg:grid-cols-6 gap-12 mb-12">
+        <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-12 mb-12">
           <div class="lg:col-span-2">
             <div class="flex items-center space-x-2 mb-4">
               <div class="w-8 h-8 flex items-center justify-center">
@@ -635,6 +709,43 @@
         const menu = document.getElementById("mobile-menu");
         menu.classList.toggle("hidden");
       }
+
+
+      // Module image preview modal
+      const moduleImageModal = document.getElementById("module-image-modal");
+      const moduleImageModalImg = document.getElementById("module-image-modal-img");
+      const moduleImageModalTitle = document.getElementById("module-image-modal-title");
+      const moduleImageModalClose = document.getElementById("module-image-modal-close");
+
+      function closeModuleImageModal() {
+        moduleImageModal.classList.add("hidden");
+        moduleImageModal.classList.remove("flex");
+        moduleImageModalImg.src = "";
+      }
+
+      document.querySelectorAll("[data-module-image]").forEach((button) => {
+        button.addEventListener("click", () => {
+          const title = button.dataset.moduleTitle || "Module preview";
+          moduleImageModalTitle.textContent = title;
+          moduleImageModalImg.src = button.dataset.moduleImage;
+          moduleImageModalImg.alt = `${title} screenshot enlarged`;
+          moduleImageModal.classList.remove("hidden");
+          moduleImageModal.classList.add("flex");
+          moduleImageModalClose.focus();
+        });
+      });
+
+      moduleImageModalClose.addEventListener("click", closeModuleImageModal);
+      moduleImageModal.addEventListener("click", (event) => {
+        if (event.target === moduleImageModal) {
+          closeModuleImageModal();
+        }
+      });
+      document.addEventListener("keydown", (event) => {
+        if (event.key === "Escape" && !moduleImageModal.classList.contains("hidden")) {
+          closeModuleImageModal();
+        }
+      });
     </script>
     <script src="{% static 'js/theme-toggle.js' %}"></script>
     <script src="{% static 'js/scroll-animations.js' %}"></script>
