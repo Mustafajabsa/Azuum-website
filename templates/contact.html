@@ -10,6 +10,17 @@
       content="Get in touch with the Azuum team. We're here to help with your form management needs."
     />
 
+
+    <script>
+      (function () {
+        const storedTheme = localStorage.getItem("azuum-theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (storedTheme === "dark" || (!storedTheme && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+    </script>
+
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
@@ -175,6 +186,16 @@
               Get Started
             </button>
             <button
+              type="button"
+              data-theme-toggle
+              class="theme-toggle hidden md:inline-flex items-center gap-2 rounded-full border border-gray-200 bg-white/80 px-3 py-2 text-sm font-medium text-gray-700 shadow-sm transition-all hover:border-blue-300 hover:text-blue-600 hover:shadow-md"
+              aria-label="Switch to dark mode"
+              aria-pressed="false"
+            >
+              <i data-lucide="moon" data-theme-icon class="w-4 h-4"></i>
+              <span data-theme-label>Dark</span>
+            </button>
+            <button
               class="md:hidden p-2 text-gray-600"
               onclick="toggleMobileMenu()"
             >
@@ -220,6 +241,17 @@
             class="block px-3 py-2 text-blue-600 hover:bg-gray-50 rounded-md"
             >Contact</a
           >
+
+          <button
+            type="button"
+            data-theme-toggle
+            class="theme-toggle flex w-full items-center gap-2 rounded-md px-3 py-2 text-gray-600 transition-colors hover:bg-gray-50"
+            aria-label="Switch to dark mode"
+            aria-pressed="false"
+          >
+            <i data-lucide="moon" data-theme-icon class="w-4 h-4"></i>
+            <span data-theme-label>Dark</span> mode
+          </button>
         </div>
       </div>
     </nav>
@@ -777,6 +809,7 @@
         lastScroll = currentScroll;
       });
     </script>
+    <script src="{% static 'js/theme-toggle.js' %}"></script>
     <script src="{% static 'js/scroll-animations.js' %}"></script>
   </body>
 </html>
