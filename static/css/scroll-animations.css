@@ -1,0 +1,61 @@
+:root {
+  --reveal-duration: 720ms;
+  --reveal-ease: cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.scroll-reveal {
+  opacity: 0;
+  transform: translate3d(0, 34px, 0) scale(0.98);
+  filter: blur(8px);
+  transition:
+    opacity var(--reveal-duration) var(--reveal-ease),
+    transform var(--reveal-duration) var(--reveal-ease),
+    filter var(--reveal-duration) var(--reveal-ease),
+    box-shadow 300ms ease;
+  transition-delay: var(--reveal-delay, 0ms);
+  will-change: opacity, transform, filter;
+}
+
+.scroll-reveal.reveal-left {
+  transform: translate3d(-44px, 0, 0) scale(0.98);
+}
+
+.scroll-reveal.reveal-right {
+  transform: translate3d(44px, 0, 0) scale(0.98);
+}
+
+.scroll-reveal.reveal-zoom {
+  transform: translate3d(0, 22px, 0) scale(0.92);
+}
+
+.scroll-reveal.reveal-flip {
+  transform: perspective(900px) rotateX(10deg) translate3d(0, 38px, 0);
+  transform-origin: top center;
+}
+
+.scroll-reveal.is-visible {
+  opacity: 1;
+  filter: blur(0);
+  transform: translate3d(0, 0, 0) scale(1);
+}
+
+.scroll-reveal.reveal-flip.is-visible {
+  transform: perspective(900px) rotateX(0deg) translate3d(0, 0, 0);
+}
+
+.reveal-glow.is-visible {
+  box-shadow: 0 24px 70px -35px rgba(59, 130, 246, 0.55);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-reveal,
+  .scroll-reveal.reveal-left,
+  .scroll-reveal.reveal-right,
+  .scroll-reveal.reveal-zoom,
+  .scroll-reveal.reveal-flip {
+    opacity: 1;
+    filter: none;
+    transform: none;
+    transition: none;
+  }
+}
