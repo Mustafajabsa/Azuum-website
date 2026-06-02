@@ -10,12 +10,25 @@
 
   const revealVariants = ["reveal-left", "reveal-right", "reveal-zoom", "reveal-flip"];
 
+  function hasTransformUtility(element) {
+    return Array.from(element.classList).some((className) => {
+      const baseClassName = className.split(":").pop();
+
+      return (
+        baseClassName === "transform" ||
+        /^-?(translate|rotate|skew)-/.test(baseClassName) ||
+        /^scale(?:-[xy])?-/.test(baseClassName)
+      );
+    });
+  }
+
   function shouldSkip(element) {
     return (
       element.classList.contains("scroll-reveal") ||
       element.closest("nav") ||
       element.closest("#mobile-menu") ||
-      element.dataset.noScrollReveal === "true"
+      element.dataset.noScrollReveal === "true" ||
+      hasTransformUtility(element)
     );
   }
 
